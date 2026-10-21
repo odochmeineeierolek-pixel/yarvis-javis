@@ -1,0 +1,18 @@
+name: Build YAVIS-Setup
+on: [workflow_dispatch, push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements-dev.txt
+      - run: python -m unittest discover -s tests
+      - run: >
+          pyinstaller --noconfirm --noconsole --name YAVIS --collect-all faster_whisper --collect-all ctranslate2
+          --collect-all edge_tts --collect-all pyttsx3 --collect-all sounddevice --collect-all duckduckgo_search run_yavis.pyw
+      - run: choco install innosetup -y --no-progress
+      - run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer\yavis.iss'
+      - uses: actions/upload-artifact@v4
+        with: { name: YAVIS-Setup, path: dist/YAVIS-Setup.exe }

@@ -24,13 +24,20 @@ Python 3.12 und Inno Setup installieren, dann im Ordner `build.bat` doppelklicke
 - Beenden: Fenster schließen. Stopp-Knopf bricht Denken/Sprechen sofort ab.
 
 ## Was YAVIS kann
-Programme **und Spiele** aus dem Startmenü starten (inkl. Steam-Verknüpfungen), Websites/Browser öffnen, Websuche mit Quellen,
-Dateien suchen (Desktop/Dokumente/Downloads…), Notizen, Uhrzeit, Gedächtnis (nur auf Wunsch), Verkaufstexte/Angebote entwerfen, Preise recherchieren.
+Siehe **FUNKTIONEN.md** (61 echte Werkzeuge + weitere App-Funktionen). Neue Oberfläche nach deinem Entwurf: Home, Chat, Projekte, Dateien,
+Wissen, Tools, Musik, Automatisierungen, Einstellungen. Klick aufs Logo = großer Orb, der beim Sprechen größer/kleiner wird.
+
+## Update einspielen (GitHub, nur im Browser)
+Neue Dateien in dein Repository hochladen (Add file → Upload files → Inhalt des Ordners hineinziehen → Commit). Gleiche Dateinamen werden ersetzt.
+Der Build startet danach automatisch (Tab Actions).
 
 ## Bewusste Grenzen
-- „Zugriff auf alles“ = alles, was als Startmenü-Programm/Spiel oder Website startbar ist. Keine freie Shell/Admin-Rechte (Sicherheit).
-- Löschen, Kaufen, Bezahlen, Veröffentlichen, Nachrichten senden: nicht automatisch; Bestätigungsdialog vorgesehen, die Aktionen selbst sind noch nicht eingebaut.
-- Die Stimmen sind die besten kostenlosen (Edge Neural), klingen aber nicht wie ein echter Mensch; Gefühle laufen über Tempo/Tonhöhe. Offline-Stimme (Windows) klingt deutlich robotischer.
-- Orb-Bewegung beim Sprechen ist eine Simulation, beim Zuhören reagiert er auf dein Mikrofon.
-- „Lernen“: bisher nur über das Gedächtnis (Fakten/Vorlieben), keine Selbstveränderung.
-- Geschwindigkeit hängt von deinem PC ab. Ohne Grafikkarte: Modell `qwen2.5:3b` (Standard) + Hörmodell `base`/`small`.
+- Nicht auf Windows getestet: Oberfläche, Mikrofon, Sprache, Musik, Installer. Nur die Logik (25 Tests) läuft automatisch.
+- „Zugriff auf alles“ = alles, was im Startmenü steht (Programme, Steam-Spiele) oder eine Website ist, plus freigegebene Ordner. Keine freie Shell.
+- Tastatur-Steuerung und Zwischenablage sind standardmäßig AUS (Seite „Tools“ einschalten).
+- Beenden/Herunterfahren/Neustart brauchen immer deine Bestätigung. Kaufen/Bezahlen/Senden/Veröffentlichen gibt es nicht als Funktion.
+- Stimmen: 13 Varianten aus 11 Neural-Stimmen (Frau/Mann, DE/AT/CH) – die besten kostenlosen, aber keine Menschen. Gefühle über Tempo/Tonhöhe. Benötigt Internet; offline Windows-Stimme (roboterhafter).
+- Zuhören: Läuft laute Musik über Lautsprecher, kann die Erkennung stören – mit Kopfhörern oder leiser Musik am besten. Beim Sprechen pausiert das Mikrofon absichtlich (kein Selbsthören).
+- Lernen = harmlose Vorlieben als sichtbare Einträge (Seite Wissen), keine Selbstveränderung des Programms.
+- Tempo: Häufige Befehle (öffnen, Musik, Zeit, Timer …) laufen ohne KI sofort. Freie Fragen hängen von deinem PC ab (kleines Modell = schneller).
+- Websuche nutzt eine inoffizielle kostenlose Schnittstelle; sie kann gelegentlich ausfallen.
