@@ -9,7 +9,6 @@ OutputBaseFilename=YAVIS-Setup
 Compression=lzma2
 SolidCompression=yes
 PrivilegesRequired=lowest
-ArchitecturesInstallMode=x64compatible
 
 [Files]
 Source: "..\dist\YAVIS\*"; DestDir: "{app}"; Flags: recursesubdirs ignoreversion
@@ -32,7 +31,7 @@ Filename: "{app}\YAVIS.exe"; Description: "YAVIS jetzt starten"; Flags: nowait p
 function OllamaInstalled: Boolean;
 begin
   Result := FileExists(ExpandConstant('{localappdata}\Programs\Ollama\ollama.exe')) or
-            FileExists(ExpandConstant('{pf}\Ollama\ollama.exe'));
+            FileExists(ExpandConstant('{autopf}\Ollama\ollama.exe'));
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
